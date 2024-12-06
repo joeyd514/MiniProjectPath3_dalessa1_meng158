@@ -132,7 +132,7 @@ def OverallAccuracy(results, actual_values):
 
 # Part 4
 Model1_Overall_Accuracy = OverallAccuracy(model1_results, y_test)
-print("The overall results of the Gaussian model is " + str(Model1_Overall_Accuracy))
+print("The overall results of the Gaussian model is " + str(Model1_Overall_Accuracy) + "\n")
 
 
 #Part 5
@@ -146,17 +146,41 @@ allnumbers_model1_results = model_1.predict(allnumbers_images_reshaped)
 # print predicted values using allnumbers
 print_numbers(allnumbers_images, allnumbers_model1_results)
 
+# print accuracy
+Model1_Overall_Accuracy = OverallAccuracy(allnumbers_model1_results, allnumbers_labels)
+print("The overall results of the Gaussian model with allnumbers is " + str(Model1_Overall_Accuracy) + "\n")
+
 
 # #Part 6
 # #Repeat for K Nearest Neighbors
 model_2 = KNeighborsClassifier(n_neighbors=10)
 
+# reshape and predict using allnumbers
+X_train_reshaped = X_train.reshape(X_train.shape[0], -1)
+model_2.fit(X_train_reshaped, y_train)
+allnumbers_model2_results = model_2.predict(allnumbers_images_reshaped)
 
-# test comment
+# print predicted values using allnumbers
+print_numbers(allnumbers_images, allnumbers_model2_results)
+
+# print accuracy
+Model2_Overall_Accuracy = OverallAccuracy(allnumbers_model2_results, allnumbers_labels)
+print("The overall results of the K Nearest Neighbors model with allnumbers is " + str(Model2_Overall_Accuracy) + "\n")
+
 
 # #Repeat for the MLP Classifier
-# model_3 = MLPClassifier(random_state=0)
+model_3 = MLPClassifier(random_state=0)
 
+# predict using allnumbers
+model_3.fit(X_train_reshaped, y_train)
+allnumbers_model3_results = model_3.predict(allnumbers_images_reshaped)
+
+# print predicted values using allnumbers
+print_numbers(allnumbers_images, allnumbers_model3_results)
+
+# print accuracy
+Model3_Overall_Accuracy = OverallAccuracy(allnumbers_model3_results, allnumbers_labels)
+print("The overall results of the MLP Classifier model with allnumbers is " + str(Model3_Overall_Accuracy) + "\n")
 
 
 # #Part 8
