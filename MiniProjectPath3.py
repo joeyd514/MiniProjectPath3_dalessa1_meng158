@@ -162,14 +162,15 @@ model_2 = KNeighborsClassifier(n_neighbors=10)
 # #Part 8
 # #Poisoning
 # # Code for generating poison data. There is nothing to change here.
-# noise_scale = 10.0
-# poison = rng.normal(scale=noise_scale, size=X_train.shape)
+noise_scale = 10.0
+poison = rng.normal(scale=noise_scale, size=X_train.shape)
 
-# X_train_poison = X_train + poison
+X_train_poison = X_train + poison
 
 
 # #Part 9-11
 # #Determine the 3 models performance but with the poisoned training data X_train_poison and y_train instead of X_train and y_train
+
 
 
 
