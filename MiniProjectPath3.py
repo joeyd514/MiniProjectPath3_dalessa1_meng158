@@ -183,4 +183,4 @@ test_data = [X_test_denoised, y_test]
 print_data = [allnumbers_denoised, allnumbers_labels]
 
 for model_detail in models_list:
-    run_model(model_detail, train_dat, test_data, print_data, "Denoised")
+    run_model(model_detail, train_data, test_data, print_data, "Denoised")
